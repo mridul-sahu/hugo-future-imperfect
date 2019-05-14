@@ -7,17 +7,17 @@ $(function(){
         scroll_top_duration = 700,
         //grab the "back to top" link
         $backToTop = $('#back-to-top');
-        $shareNav = $('#share-nav');
+        //$shareNav = $('#share-nav');
 
     //hide or show the "back to top" link
     $(window).scroll(function(){
         if ($(this).scrollTop() > offset) {
             $backToTop.fadeIn();
-            $shareNav.fadeIn();
+            //$shareNav.fadeIn();
         } else {
             $backToTop.fadeOut();
             $backToTop.removeClass('btt-fade-out');
-            $shareNav.fadeOut();
+            //$shareNav.fadeOut();
         }
 
         if($(this).scrollTop() > offset_opacity) {

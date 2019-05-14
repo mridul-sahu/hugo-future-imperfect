@@ -1,14 +1,11 @@
 {{ $.Scratch.Set "generalTitle" .Title }}
-{{ if eq ($.Scratch.Get "generalTitle") "Blogs" }}
-    {{ $.Scratch.Set "generalTitle" "Blog" }}
-{{ end }}
-{{ if and (.IsNode) (eq .Data.Plural "categories") }}
-    {{ if ne .Data.Plural (lower .Title) }}
-        {{ $.Scratch.Add "generalTitle" " Posts - " }}
+{{ if eq ($.Scratch.Get "generalTitle") "Blog" }}
+    {{ $.Scratch.Set "generalTitle" (printf "%v | %v" "Blog" .Site.Title) }}
+{{ else }}
+    {{ if eq ($.Scratch.Get "generalTitle") .Site.Title }}
+        {{ $.Scratch.Set "generalTitle" (printf "%v | %v" "Blog" .Site.Title) }}
     {{ else }}
         {{ $.Scratch.Add "generalTitle" " - " }}
+        {{ $.Scratch.Add "generalTitle" .Site.Title }}
     {{ end }}
-{{ else }}
-    {{ $.Scratch.Add "generalTitle" " - " }}
 {{ end }}
-{{ $.Scratch.Add "generalTitle" .Site.Title }}
