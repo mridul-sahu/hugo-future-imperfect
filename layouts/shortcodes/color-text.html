@@ -1,0 +1,4 @@
+{{ $numOfParams := len .Params }}
+{{ if eq $numOfParams 2 }}
+    <font color="{{ .Get 1 }}">{{ .Get 0 }}</font>
+{{ end }}
